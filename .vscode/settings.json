@@ -3,7 +3,11 @@
         "Cgreen",
         "Creset",
         "Distro",
+        "ensurepath",
         "gpgsign",
+        "NOPASSWD",
+        "pipx",
+        "Pyenv",
         "signingkey"
     ]
 }
