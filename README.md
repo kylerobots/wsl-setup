@@ -13,6 +13,10 @@ It assumes you start just after installing with `wsl --install <distro-name>`
     1. [pyenv](#pyenv)
     2. [pipx](#pipx)
     3. [Poetry](#poetry)
+5. [C++](#c)
+    1. [CMake](#cmake)
+    2. [Other Build Tools](#other-build-tools)
+    3. [vcpkg](#vcpkg)
 
 ## Password-Less Sudo ##
 
@@ -103,3 +107,54 @@ There are multiple ways to install it, as described at
 [https://python-poetry.org/docs/](https://python-poetry.org/docs/). Since pipx is already installed, that is probably
 the easiest. To specify a particular Python version to use with pipx, run
 `pipx install poetry --python $(which python)`, where the last argument is the path to the particular version.
+
+## C++ ##
+
+C++ development will be a bit more direct. For more modular, use Docker.
+
+### [CMake](https://cmake.org/) ###
+
+CMake will help generate and run the compilation instructions. While it is possible to install with `apt-get`, this will
+typically be an older version. If you want the latest (or a specific version), use the script
+[helpful_files/reinstall-cmake.sh](helpful_files/reinstall-cmake.sh) like shown below, where _version-number_ is
+replaced with the desired version (e.g. 3.31.1).
+
+```bash
+./helpful_files/reinstall-cmake.sh version-number
+```
+
+This file is borrowed from Microsoft's C++ container setup template.
+
+### Other Build Tools ###
+
+There are various compilers and utilities that may be helpful to download. A lot of them are available through `apt`, so
+can be downloaded with `apt install`. Some may have options to download specific versions. A short list of packages is
+as follows. There may be some overlap between packages and dependencies.
+
+* build-essential (gcc, make)
+* clang
+* clang-format
+* clang-tidy
+* cppcheck
+* gdb
+* lldb
+* llvm
+* ninja-build
+* valgrind
+
+Here is a convenient way to install them all.
+
+```bash
+sudo apt-get update
+sudo apt-get install build-essential clang clang-format clang-tidy cppcheck gdb lldb llvm ninja-build valgrind
+```
+
+### [vcpkg](https://vcpkg.io/en/) ###
+
+vcpkg can help with C++ package management. It's install instructions are straightforward, as described at
+[https://learn.microsoft.com/en-us/vcpkg/get_started/get-started?pivots=shell-bash](https://learn.microsoft.com/en-us/vcpkg/get_started/get-started?pivots=shell-bash)
+in steps 1 and 2. It can go anywhere. I choose to put it in a folder called _~/.vcpkg_. As long as the environmental
+variable paths are correct, it will work.
+
+Note that any project using CMake should also have a _CMakeUserPresets.json_ file that points to the correct location
+for vcpkg, as shown in the example linked above in step 4.

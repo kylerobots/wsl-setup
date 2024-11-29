@@ -1,13 +1,17 @@
 {
     "cSpell.words": [
         "Cgreen",
+        "cppcheck",
         "Creset",
         "Distro",
         "ensurepath",
         "gpgsign",
+        "lldb",
         "NOPASSWD",
         "pipx",
         "Pyenv",
-        "signingkey"
+        "signingkey",
+        "valgrind",
+        "vcpkg"
     ]
 }
