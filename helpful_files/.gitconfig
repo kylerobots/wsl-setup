@@ -1,0 +1,20 @@
+[alias]
+    hist = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
+[commit]
+    gpgsign = true
+[core]
+    autocrlf = input
+    editor = code --wait
+[gpg]
+    format = ssh
+[gpg "ssh"]
+    allowedSignersFile = /home/kyle/.ssh/allowed_signers
+    program = "/mnt/c/Users/Kyle/AppData/Local/1Password/app/8/op-ssh-sign-wsl"
+[init]
+    defaultBranch = main
+[tag]
+    gpgsign = true
+[user]
+    email = "<email>"
+    name = "<name>"
+    signingkey = ssh-ed25519 <look up via 1Password or cat>
