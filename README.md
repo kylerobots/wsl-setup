@@ -58,6 +58,14 @@ the computer.
 _gpg "ssh".program_ entry can be removed.
 * Configure the rest of the file according to needs. This includes things like setting tag and commit signing or not.
 
+Especially if using 1password, it is useful to alias the ssh commands to their _.exe_ versions. Open or create the
+_~/.bash_aliases_ file and add the following lines. Then either restart the terminal or source _~/.bashrc_.
+
+```bash
+alias ssh='ssh.exe'
+alias ssh-add='ssh-add.exe'
+```
+
 While optional, it is also sometimes helpful when checking commits to create a file called _~/.ssh/allowed_signers_ that
 contains a line that looks like this:
 
